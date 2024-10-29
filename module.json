@@ -1,0 +1,49 @@
+{
+  "id": "pf2e-animist",
+  "title": "PF2e Animist",
+  "description": "",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Reyzor",
+      "url": "https://www.patreon.com/Reyzor1991",
+      "discord": "reyzor1991"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.js"
+  ],
+  "styles": [
+    "styles/main.css"
+  ],
+  "packFolders": [],
+  "packs": [],
+  "compatibility": {
+    "minimum": "12.331",
+    "verified": "12.331"
+  },
+  "url": "https://github.com/reyzor1991/pf2e-wiki/wiki/PF2e-Animist",
+  "manifest": "",
+  "download": "",
+  "relationships": {
+    "systems": [
+      {
+        "id": "pf2e",
+        "type": "system",
+        "manifest": "https://github.com/foundryvtt/pf2e/releases/latest/download/system.json",
+        "compatibility": {
+          "minimum": "6.5.1",
+          "verified": "6.5.1"
+        }
+      }
+    ],
+    "requires": []
+  }
+}
