@@ -1,3 +1,6 @@
+## Version 0.0.6
+- Add Third/Fourth Apparition
+
 ## Version 0.0.5
 - Add signature spells
 

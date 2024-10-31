@@ -371,9 +371,33 @@ async function createFocus(spellEntry) {
 }
 
 Hooks.on("pf2e.restForTheNight", async (actor) => {
+    if (!actor || actor.class.slug !== 'animist') {
+        return
+    }
+
+    let entry = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Apparition Spells');
+    if (entry) {
+        await actor.deleteEmbeddedDocuments(
+            "Item",
+            actor.itemTypes.spell
+                .filter(s => s.system?.location?.value === entry?.id)
+                .map(i => i.id)
+        );
+    }
+
+    entry = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Vessel Spell');
+    if (entry) {
+        await actor.deleteEmbeddedDocuments(
+            "Item",
+            actor.itemTypes.spell
+                .filter(s => s.system?.location?.value === entry?.id)
+                .map(i => i.id)
+        );
+    }
+
     let aa = actor.itemTypes.feat.find(s => s.slug === 'apparition-attunement');
-    let ta = actor.itemTypes.feat.find(s => s.slug === 'third-attunement');
-    let fa = actor.itemTypes.feat.find(s => s.slug === 'fourth-attunement');
+    let ta = actor.itemTypes.feat.find(s => s.slug === 'third-apparition');
+    let fa = actor.itemTypes.feat.find(s => s.slug === 'fourth-apparition');
     if (aa) {
         await actor.toggleRollOption("all", "primary-apparition", aa.id, true, "dispersed")
         await actor.toggleRollOption("all", "secondary-apparition", aa.id, true, "dispersed")
