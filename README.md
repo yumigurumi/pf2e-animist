@@ -20,8 +20,8 @@ Add rules to Apparition Attunement
       "value": "echo-of-lost-moments"
     },
     {
-      "label": "Imposter in Hidden Places",
-      "value": "imposter-in-hidden-places"
+      "label": "Impostor in Hidden Places",
+      "value": "impostor-in-hidden-places"
     },
     {
       "label": "Lurker in Devouring Dark",
@@ -98,11 +98,11 @@ Add rules to Apparition Attunement
       ]
     },
     {
-      "label": "Imposter in Hidden Places",
-      "value": "imposter-in-hidden-places",
+      "label": "Impostor in Hidden Places",
+      "value": "impostor-in-hidden-places",
       "predicate": [
         {
-          "not": "primary-apparition:imposter-in-hidden-places"
+          "not": "primary-apparition:impostor-in-hidden-places"
         }
       ]
     },
