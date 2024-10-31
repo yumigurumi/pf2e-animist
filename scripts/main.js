@@ -263,6 +263,7 @@ async function createLores(item) {
 }
 
 async function createSpells(spellEntry) {
+    let level = Math.ceil(spellEntry.actor.level/2)
     let apSpells = spellEntry.actor.getRollOptions()
         .filter(o => APPARITION_OPTIONS.some(a => o.startsWith(a)))
         .map(s => s.replace(new RegExp(`${APPARITION_OPTIONS.join('|')}`, 'i'), ''))
@@ -271,6 +272,9 @@ async function createSpells(spellEntry) {
     let allSpells = []
     for (const spells of apSpells) {
         for (let i = 0; i < spells.length; i++) {
+            if (i > level) {
+                break
+            }
             let o = (await fromUuid(spells[i])).toObject();
             o.system.location.value = spellEntry.id;
             if (i) {

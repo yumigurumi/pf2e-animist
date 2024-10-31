@@ -1,3 +1,6 @@
+## Version 0.0.3
+- Fix spells changing
+
 ## Version 0.0.2
 - Add spells
 - Add notifications
