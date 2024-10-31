@@ -1,3 +1,6 @@
+## Version 0.0.4
+- Add vessel focus spells
+
 ## Version 0.0.3
 - Fix spells changing
 
