@@ -344,6 +344,7 @@ async function createSpells(spellEntry) {
             let o = (await fromUuid(spells[i])).toObject();
             o.system.location.value = spellEntry.id;
             if (i) {
+                o.system.location.signature = true;
                 o.system.location.heightenedLevel = i;
             }
             allSpells.push(o);

@@ -1,3 +1,6 @@
+## Version 0.0.5
+- Add signature spells
+
 ## Version 0.0.4
 - Add vessel focus spells
 
