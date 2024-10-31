@@ -5,10 +5,14 @@ function isActiveGM() {
 }
 
 const APPARITIONS = {
+    "crafter-in-the-vault": ["Architecture", "Engineering"],
     'custodian-of-groves-and-gardens': ["Farming", "Herbalism"],
+    "echo-of-lost-moments": ["Fortune-Telling", "Genealogy"],
     'imposter-in-hidden-places': ["Fortune-Telling", "Underworld"],
+    'lurker-in-devouring-dark': ["Ocean", "Sailing"],
+    "monarch-of-the-fey-courts": ["Art", "Fey"],
     'reveler-in-lost-glee': ["Circus", "Fortune-Telling"],
-    'stalker-in-darkened-boughs': ["Forest", "Herbalism"],
+    'stalker-in-darkened-boughs': ["Forest", "Hunting"],
     'steward-of-stone-and-fire': ["Mountain", "Volcano"],
     'vanguard-of-roaring-waters': ["Mountain", "River"],
     'witness-to-ancient-battles': ["Battlegrounds", "Heraldry"],
@@ -28,21 +32,21 @@ const LORE_SKILL = {
 const APPARITION_OPTIONS = ['primary-apparition:', 'secondary-apparition:', 'third-apparition:', 'fourth-apparition:']
 
 Hooks.on("updateItem", async (item, data, options, userId) => {
-    if (!item.actor) {
-        return
-    }
-    if (item.name !== "Apparition Attunement") {
-        return
-    }
-    if (!data?.system?.rules) {
+    if (
+        !isActiveGM()
+        || !item.actor
+        || item.name !== "Apparition Attunement"
+        || !data?.system?.rules
+    ) {
         return
     }
 
-    let ids = item.actor.itemTypes.lore
-        .filter(l => l?.flags?.[moduleName]?.generated)
-        .map(i => i.id);
-
-    await item.actor.deleteEmbeddedDocuments("Item", ids);
+    await item.actor.deleteEmbeddedDocuments(
+        "Item",
+        item.actor.itemTypes.lore
+            .filter(l => l?.flags?.[moduleName]?.generated)
+            .map(i => i.id)
+    );
 
     setTimeout(async function () {
         await createLores(item)
