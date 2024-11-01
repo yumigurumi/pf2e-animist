@@ -1,3 +1,7 @@
+## Version 0.0.9
+- Add setting - All Apparition spells are signature spells
+- Add Avatar Form (Incarnate Dungeon)
+
 ## Version 0.0.8
 - Add Avatar spell to list
 

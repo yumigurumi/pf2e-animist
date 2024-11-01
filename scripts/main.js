@@ -333,7 +333,9 @@ async function createSpells(spellEntry) {
             let o = (await fromUuid(spells[i])).toObject();
             o.system.location.value = spellEntry.id;
             if (i) {
-                o.system.location.signature = true;
+                if (game.settings.get(moduleName, "signatureSpell")) {
+                    o.system.location.signature = true;
+                }
                 o.system.location.heightenedLevel = i;
             }
             allSpells.push(o);
@@ -342,8 +344,9 @@ async function createSpells(spellEntry) {
     if (level >= 10) {
         let o = (await fromUuid("Compendium.pf2e.spells-srd.Item.ckUOoqOM7Kg7VqxB")).toObject();
         o.system.location.value = spellEntry.id;
-        o.system.location.signature = true;
-        o.system.location.heightenedLevel = 10;
+        if (game.settings.get(moduleName, "signatureSpell")) {
+            o.system.location.signature = true;
+        }        o.system.location.heightenedLevel = 10;
         allSpells.push(o);
 
     }
@@ -403,4 +406,15 @@ Hooks.on("renderCharacterSheetPF2e", (sheet, html) => {
 
     html.find('aside .sidebar .hp-small')
         .append(btn)
+});
+
+Hooks.once("init", () => {
+    game.settings.register(moduleName, "signatureSpell", {
+        name: "All Apparition spells are signature spells",
+        hint: "",
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean,
+    });
 });
