@@ -1,3 +1,9 @@
+## Version 0.0.10
+- Add Avatar Form (Peaceful Reaches)
+- Add Avatar Form (Devourer of Lost Time)
+- Add Avatar Form (Whisper Hiding in Shadows)
+- Add Avatar Form (Tentacles from the Dark)
+
 ## Version 0.0.9
 - Add setting - All Apparition spells are signature spells
 - Add Avatar Form (Incarnate Dungeon)
