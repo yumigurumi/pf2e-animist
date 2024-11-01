@@ -1,3 +1,6 @@
+## Version 0.0.8
+- Add Avatar spell to list
+
 ## Version 0.0.7
 - Change logic from apply on fly to click btn (avoid errors)
 

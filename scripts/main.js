@@ -339,6 +339,14 @@ async function createSpells(spellEntry) {
             allSpells.push(o);
         }
     }
+    if (level >= 10) {
+        let o = (await fromUuid("Compendium.pf2e.spells-srd.Item.ckUOoqOM7Kg7VqxB")).toObject();
+        o.system.location.value = spellEntry.id;
+        o.system.location.signature = true;
+        o.system.location.heightenedLevel = 10;
+        allSpells.push(o);
+
+    }
 
     await spellEntry.actor.createEmbeddedDocuments("Item", allSpells);
 
