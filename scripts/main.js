@@ -181,7 +181,7 @@ const LORE_SKILL = {
 const SPELLCASTING_ENTRY = {
     "_id": "",
     "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
-    "name": "Apparition Spells",
+    "name": "Apparition Attunement",
     "system": {
         "ability": {"value": "wis"},
         "spelldc": {"value": 0, "dc": 0},
@@ -212,7 +212,7 @@ const SPELLCASTING_ENTRY = {
 const FOCUS_ENTRY = {
     "_id": "",
     "img": "systems/pf2e/icons/default-icons/spellcastingEntry.svg",
-    "name": "Vessel Spell",
+    "name": "Vessel Spells",
     "system": {
         "ability": {"value": "wis"},
         "spelldc": {"value": 0, "dc": 0},
@@ -252,7 +252,7 @@ async function applyChanges(actor) {
 }
 
 async function getSpellEntries(actor) {
-    let entry = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Apparition Spells');
+    let entry = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Apparition Attunement');
     if (!entry) {
         let spellE = foundry.utils.deepClone(SPELLCASTING_ENTRY);
         spellE._id = foundry.utils.randomID()
@@ -263,7 +263,7 @@ async function getSpellEntries(actor) {
         entry = (await actor.createEmbeddedDocuments("Item", [spellE]))[0];
     }
 
-    let focus = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Vessel Spell');
+    let focus = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Vessel Spells');
     if (!focus) {
         let focusE = foundry.utils.deepClone(FOCUS_ENTRY);
         focusE._id = foundry.utils.randomID()

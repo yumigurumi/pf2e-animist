@@ -1,3 +1,6 @@
+## Version 0.0.11
+- Add compatibilities with Dailies module (need to delete old spellcasting entry)
+ 
 ## Version 0.0.10
 - Add Avatar Form (Peaceful Reaches)
 - Add Avatar Form (Devourer of Lost Time)
