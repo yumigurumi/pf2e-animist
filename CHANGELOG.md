@@ -1,3 +1,7 @@
+## Version 0.0.12
+- Add Avatar Form (Queen of the Winter Court)
+- Add Avatar Form (Ringmaster of the Dark Celebration)
+ 
 ## Version 0.0.11
 - Add compatibilities with Dailies module (need to delete old spellcasting entry)
  
