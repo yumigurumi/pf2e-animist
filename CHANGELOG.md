@@ -1,3 +1,6 @@
+## Version 0.0.7
+- Change logic from apply on fly to click btn (avoid errors)
+
 ## Version 0.0.6
 - Add Third/Fourth Apparition
 

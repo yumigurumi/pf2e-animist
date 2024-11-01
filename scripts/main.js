@@ -242,20 +242,17 @@ const FOCUS_ENTRY = {
 
 const APPARITION_OPTIONS = ['primary-apparition:', 'secondary-apparition:', 'third-apparition:', 'fourth-apparition:']
 
-Hooks.on("updateItem", async (item, data, options, userId) => {
-    if (
-        !isActiveGM()
-        || !item.actor
-        || (item.name !== "Apparition Attunement"
-            && item.name !== "Third Attunement"
-            && item.name !== "Fourth Attunement"
-        )
-        || !data?.system?.rules
-    ) {
-        return
-    }
+async function applyChanges(actor) {
+    let {entry, focus} = await getSpellEntries(actor)
+    await deleteData(actor, entry, focus)
 
-    let entry = item.actor.itemTypes.spellcastingEntry.find(s => s.name === 'Apparition Spells');
+    await createLores(actor)
+    await createSpells(entry)
+    await createFocus(focus)
+}
+
+async function getSpellEntries(actor) {
+    let entry = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Apparition Spells');
     if (!entry) {
         let spellE = foundry.utils.deepClone(SPELLCASTING_ENTRY);
         spellE._id = foundry.utils.randomID()
@@ -263,10 +260,10 @@ Hooks.on("updateItem", async (item, data, options, userId) => {
             generated: true
         }
 
-        entry = (await item.actor.createEmbeddedDocuments("Item", [spellE]))[0];
+        entry = (await actor.createEmbeddedDocuments("Item", [spellE]))[0];
     }
 
-    let focus = item.actor.itemTypes.spellcastingEntry.find(s => s.name === 'Vessel Spell');
+    let focus = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Vessel Spell');
     if (!focus) {
         let focusE = foundry.utils.deepClone(FOCUS_ENTRY);
         focusE._id = foundry.utils.randomID()
@@ -274,39 +271,31 @@ Hooks.on("updateItem", async (item, data, options, userId) => {
             generated: true
         }
 
-        focus = (await item.actor.createEmbeddedDocuments("Item", [focusE]))[0];
+        focus = (await actor.createEmbeddedDocuments("Item", [focusE]))[0];
     }
 
-    await item.actor.deleteEmbeddedDocuments(
+    return {entry, focus}
+}
+
+async function deleteData(actor, entry, focus) {
+    await actor.deleteEmbeddedDocuments(
         "Item",
-        item.actor.itemTypes.lore
-            .filter(l => l?.flags?.[moduleName]?.generated)
-            .map(i => i.id)
+        [
+            ...actor.itemTypes.lore
+                .filter(l => l?.flags?.[moduleName]?.generated)
+                .map(i => i.id),
+            ...actor.itemTypes.spell
+                .filter(s => s.system?.location?.value === entry?.id && entry)
+                .map(i => i.id),
+            ...actor.itemTypes.spell
+                .filter(s => s.system?.location?.value === focus?.id && focus)
+                .map(i => i.id)
+        ]
     );
+}
 
-    await item.actor.deleteEmbeddedDocuments(
-        "Item",
-        item.actor.itemTypes.spell
-            .filter(s => s.system?.location?.value === entry?.id)
-            .map(i => i.id)
-    );
-
-    await item.actor.deleteEmbeddedDocuments(
-        "Item",
-        item.actor.itemTypes.spell
-            .filter(s => s.system?.location?.value === focus?.id)
-            .map(i => i.id)
-    );
-
-    setTimeout(async function () {
-        await createLores(item)
-        await createSpells(entry)
-        await createFocus(focus)
-    }, 150)
-});
-
-async function createLores(item) {
-    let lores = item.actor.getRollOptions()
+async function createLores(actor) {
+    let lores = actor.getRollOptions()
         .filter(o => APPARITION_OPTIONS.some(a => o.startsWith(a)))
         .map(s => s.replace(new RegExp(`${APPARITION_OPTIONS.join('|')}`, 'i'), ''))
         .map(r => APPARITIONS[r] || [])
@@ -323,9 +312,9 @@ async function createLores(item) {
         return newEffect
     })
 
-    await item.actor.createEmbeddedDocuments("Item", items);
+    await actor.createEmbeddedDocuments("Item", items);
 
-    ui.notifications.info(`Lores were changed for ${item.actor.name}`);
+    ui.notifications.info(`Lores were changed for ${actor.name}`);
 }
 
 async function createSpells(spellEntry) {
@@ -375,25 +364,8 @@ Hooks.on("pf2e.restForTheNight", async (actor) => {
         return
     }
 
-    let entry = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Apparition Spells');
-    if (entry) {
-        await actor.deleteEmbeddedDocuments(
-            "Item",
-            actor.itemTypes.spell
-                .filter(s => s.system?.location?.value === entry?.id)
-                .map(i => i.id)
-        );
-    }
-
-    entry = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Vessel Spell');
-    if (entry) {
-        await actor.deleteEmbeddedDocuments(
-            "Item",
-            actor.itemTypes.spell
-                .filter(s => s.system?.location?.value === entry?.id)
-                .map(i => i.id)
-        );
-    }
+    let {entry, focus} = await getSpellEntries(actor)
+    await deleteData(actor, entry, focus)
 
     let aa = actor.itemTypes.feat.find(s => s.slug === 'apparition-attunement');
     let ta = actor.itemTypes.feat.find(s => s.slug === 'third-apparition');
@@ -408,4 +380,19 @@ Hooks.on("pf2e.restForTheNight", async (actor) => {
     if (fa) {
         await actor.toggleRollOption("all", "fourth-apparition", fa.id, true, "dispersed")
     }
+});
+
+Hooks.on("renderCharacterSheetPF2e", (sheet, html) => {
+    if (!sheet.object || sheet.object?.class?.slug !== 'animist' || !sheet.object.isOwner) {
+        return
+    }
+    let btn = $(`
+        <a class="roll-icon" data-tooltip="Apply changes of Apparitions">
+            <i class="fa-solid fa-ghost"></i>
+        </a>
+    `)
+    btn.on('click', (e) => applyChanges(sheet.object));
+
+    html.find('aside .sidebar .hp-small')
+        .append(btn)
 });
