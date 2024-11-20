@@ -1,3 +1,6 @@
+## Version 0.0.14
+- Add Devouring Dark Form effect
+
 ## Version 0.0.13
 - Fix packs 
 

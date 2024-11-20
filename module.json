@@ -2,7 +2,7 @@
   "id": "pf2e-animist",
   "title": "PF2e Animist",
   "description": "",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "authors": [
     {
       "name": "Reyzor",
@@ -28,7 +28,7 @@
     {
       "label": "Animist - Effects",
       "name": "effects",
-      "path": "packs/effects.db",
+      "path": "packs/effects",
       "system": "pf2e",
       "ownership": {
         "PLAYER": "OBSERVER",
