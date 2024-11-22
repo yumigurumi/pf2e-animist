@@ -248,7 +248,7 @@ async function applyChanges(actor) {
 
     await createLores(actor)
     await createSpells(entry)
-    await createFocus(focus)
+    await createFocus(focus, actor.level >= 9 && actor.getRollOptions().includes("feature:medium"))
 }
 
 async function getSpellEntries(actor) {
@@ -356,7 +356,7 @@ async function createSpells(spellEntry) {
     ui.notifications.info(`Spells were changed for ${spellEntry.actor.name}`);
 }
 
-async function createFocus(spellEntry) {
+async function createFocus(spellEntry, dualInvocation) {
     let focus = spellEntry.actor.getRollOptions()
         .filter(o => o.startsWith('primary-apparition:'))
         .map(s => s.replace(new RegExp(`${APPARITION_OPTIONS.join('|')}`, 'i'), ''))
@@ -367,6 +367,20 @@ async function createFocus(spellEntry) {
         focus.system.location.value = spellEntry.id;
 
         await spellEntry.actor.createEmbeddedDocuments("Item", [focus]);
+    }
+
+    if (dualInvocation) {
+        let focus2 = spellEntry.actor.getRollOptions()
+            .filter(o => o.startsWith('secondary-apparition:'))
+            .map(s => s.replace(new RegExp(`${APPARITION_OPTIONS.join('|')}`, 'i'), ''))
+            .map(r => VESSEL_FOCUS[r])
+            .find(a => a)
+        if (focus2) {
+            focus2 = (await fromUuid(focus2)).toObject();
+            focus2.system.location.value = spellEntry.id;
+
+            await spellEntry.actor.createEmbeddedDocuments("Item", [focus2]);
+        }
     }
 }
 

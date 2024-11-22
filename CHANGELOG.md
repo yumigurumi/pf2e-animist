@@ -1,3 +1,6 @@
+## Version 0.0.15
+- Support of Dual Invocation
+
 ## Version 0.0.14
 - Add Devouring Dark Form effect
 
