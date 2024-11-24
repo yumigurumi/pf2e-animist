@@ -70,6 +70,9 @@ async function deleteLoreSpells(actor, entry, focus) {
         ...actor.itemTypes.lore
             .filter(l => l?.flags?.[moduleName]?.generated)
             .map(i => i.id),
+        ...actor.itemTypes.lore
+            .filter(l => l?.flags?.["pf2e-dailies"]?.temporary)
+            .map(i => i.id),
         ...actor.itemTypes.spell
             .filter(s => s.system?.location?.value === entry?.id && entry)
             .map(i => i.id),
