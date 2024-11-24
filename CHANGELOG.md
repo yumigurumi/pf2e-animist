@@ -1,3 +1,7 @@
+## Version 0.1.0
+- Auto adding rules
+- Add Feat Support
+
 ## Version 0.0.15
 - Support of Dual Invocation
 
