@@ -3,57 +3,57 @@ export const FIRST = {
     "option": "primary-apparition",
     "suboptions": [
         {
-            "label": "Crafter in the Vault",
+            "label": "pf2e-animist.crafter-in-the-vault",
             "value": "crafter-in-the-vault"
         },
         {
-            "label": "Custodian of Groves and Gardens",
+            "label": "pf2e-animist.custodian-of-groves-and-gardens",
             "value": "custodian-of-groves-and-gardens"
         },
         {
-            "label": "Echo of Lost Moments",
+            "label": "pf2e-animist.echo-of-lost-moments",
             "value": "echo-of-lost-moments"
         },
         {
-            "label": "Impostor in Hidden Places",
+            "label": "pf2e-animist.impostor-in-hidden-places",
             "value": "impostor-in-hidden-places"
         },
         {
-            "label": "Lurker in Devouring Dark",
+            "label": "pf2e-animist.lurker-in-devouring-dark",
             "value": "lurker-in-devouring-dark"
         },
         {
-            "label": "Monarch of the Fey Courts",
+            "label": "pf2e-animist.monarch-of-the-fey-courts",
             "value": "monarch-of-the-fey-courts"
         },
         {
-            "label": "Reveler in Lost Glee",
+            "label": "pf2e-animist.reveler-in-lost-glee",
             "value": "reveler-in-lost-glee"
         },
         {
-            "label": "Stalker in Darkened Boughs",
+            "label": "pf2e-animist.stalker-in-darkened-boughs",
             "value": "stalker-in-darkened-boughs"
         },
         {
-            "label": "Steward of Stone and Fire",
+            "label": "pf2e-animist.steward-of-stone-and-fire",
             "value": "steward-of-stone-and-fire"
         },
         {
-            "label": "Vanguard of Roaring Waters",
+            "label": "pf2e-animist.vanguard-of-roaring-waters",
             "value": "vanguard-of-roaring-waters"
         },
         {
-            "label": "Witness to Ancient Battles",
+            "label": "pf2e-animist.witness-to-ancient-battles",
             "value": "witness-to-ancient-battles"
         },
         {
-            "label": "Dispersed",
+            "label": "pf2e-animist.dispersed",
             "value": "dispersed"
         }
     ],
     "toggleable": true,
     "alwaysActive": true,
-    "label": "Primary Apparition",
+    "label": "pf2e-animist.primary-label",
     "value": true,
     "selection": "dispersed"
 };
@@ -72,7 +72,7 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Custodian of Groves and Gardens",
+            "label": "pf2e-animist.custodian-of-groves-and-gardens",
             "value": "custodian-of-groves-and-gardens",
             "predicate": [
                 {
@@ -81,7 +81,7 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Echo of Lost Moments",
+            "label": "pf2e-animist.echo-of-lost-moments",
             "value": "echo-of-lost-moments",
             "predicate": [
                 {
@@ -90,7 +90,7 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Impostor in Hidden Places",
+            "label": "pf2e-animist.impostor-in-hidden-places",
             "value": "impostor-in-hidden-places",
             "predicate": [
                 {
@@ -99,7 +99,7 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Lurker in Devouring Dark",
+            "label": "pf2e-animist.lurker-in-devouring-dark",
             "value": "lurker-in-devouring-dark",
             "predicate": [
                 {
@@ -108,7 +108,7 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Monarch of the Fey Courts",
+            "label": "pf2e-animist.monarch-of-the-fey-courts",
             "value": "monarch-of-the-fey-courts",
             "predicate": [
                 {
@@ -117,7 +117,7 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Reveler in Lost Glee",
+            "label": "pf2e-animist.reveler-in-lost-glee",
             "value": "reveler-in-lost-glee",
             "predicate": [
                 {
@@ -126,7 +126,7 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Stalker in Darkened Boughs",
+            "label": "pf2e-animist.stalker-in-darkened-boughs",
             "value": "stalker-in-darkened-boughs",
             "predicate": [
                 {
@@ -135,7 +135,7 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Steward of Stone and Fire",
+            "label": "pf2e-animist.steward-of-stone-and-fire",
             "value": "steward-of-stone-and-fire",
             "predicate": [
                 {
@@ -144,7 +144,7 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Vanguard of Roaring Waters",
+            "label": "pf2e-animist.vanguard-of-roaring-waters",
             "value": "vanguard-of-roaring-waters",
             "predicate": [
                 {
@@ -153,7 +153,7 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Witness to Ancient Battles",
+            "label": "pf2e-animist.witness-to-ancient-battles",
             "value": "witness-to-ancient-battles",
             "predicate": [
                 {
@@ -162,13 +162,13 @@ export const SECOND = {
             ]
         },
         {
-            "label": "Dispersed",
+            "label": "pf2e-animist.dispersed",
             "value": "dispersed"
         }
     ],
     "toggleable": true,
     "alwaysActive": true,
-    "label": "Secondary Apparition",
+    "label": "pf2e-animist.secondary-label",
     "value": true,
     "selection": "dispersed"
 };
@@ -178,7 +178,7 @@ export const THIRD = {
     "option": "third-apparition",
     "suboptions": [
         {
-            "label": "Crafter in the Vault",
+            "label": "pf2e-animist.crafter-in-the-vault",
             "value": "crafter-in-the-vault",
             "predicate": [
                 {
@@ -190,7 +190,7 @@ export const THIRD = {
             ]
         },
         {
-            "label": "Custodian of Groves and Gardens",
+            "label": "pf2e-animist.custodian-of-groves-and-gardens",
             "value": "custodian-of-groves-and-gardens",
             "predicate": [
                 {
@@ -202,7 +202,7 @@ export const THIRD = {
             ]
         },
         {
-            "label": "Echo of Lost Moments",
+            "label": "pf2e-animist.echo-of-lost-moments",
             "value": "echo-of-lost-moments",
             "predicate": [
                 {
@@ -214,7 +214,7 @@ export const THIRD = {
             ]
         },
         {
-            "label": "Impostor in Hidden Places",
+            "label": "pf2e-animist.impostor-in-hidden-places",
             "value": "impostor-in-hidden-places",
             "predicate": [
                 {
@@ -226,7 +226,7 @@ export const THIRD = {
             ]
         },
         {
-            "label": "Lurker in Devouring Dark",
+            "label": "pf2e-animist.lurker-in-devouring-dark",
             "value": "lurker-in-devouring-dark",
             "predicate": [
                 {
@@ -238,7 +238,7 @@ export const THIRD = {
             ]
         },
         {
-            "label": "Monarch of the Fey Courts",
+            "label": "pf2e-animist.monarch-of-the-fey-courts",
             "value": "monarch-of-the-fey-courts",
             "predicate": [
                 {
@@ -250,7 +250,7 @@ export const THIRD = {
             ]
         },
         {
-            "label": "Reveler in Lost Glee",
+            "label": "pf2e-animist.reveler-in-lost-glee",
             "value": "reveler-in-lost-glee",
             "predicate": [
                 {
@@ -262,7 +262,7 @@ export const THIRD = {
             ]
         },
         {
-            "label": "Stalker in Darkened Boughs",
+            "label": "pf2e-animist.stalker-in-darkened-boughs",
             "value": "stalker-in-darkened-boughs",
             "predicate": [
                 {
@@ -274,7 +274,7 @@ export const THIRD = {
             ]
         },
         {
-            "label": "Steward of Stone and Fire",
+            "label": "pf2e-animist.steward-of-stone-and-fire",
             "value": "steward-of-stone-and-fire",
             "predicate": [
                 {
@@ -286,7 +286,7 @@ export const THIRD = {
             ]
         },
         {
-            "label": "Vanguard of Roaring Waters",
+            "label": "pf2e-animist.vanguard-of-roaring-waters",
             "value": "vanguard-of-roaring-waters",
             "predicate": [
                 {
@@ -298,7 +298,7 @@ export const THIRD = {
             ]
         },
         {
-            "label": "Witness to Ancient Battles",
+            "label": "pf2e-animist.witness-to-ancient-battles",
             "value": "witness-to-ancient-battles",
             "predicate": [
                 {
@@ -316,7 +316,7 @@ export const THIRD = {
     ],
     "toggleable": true,
     "alwaysActive": true,
-    "label": "Third Apparition",
+    "label": "pf2e-animist.third-label",
     "value": true,
     "selection": "dispersed"
 };
@@ -326,7 +326,7 @@ export const FOURTH = {
     "option": "fourth-apparition",
     "suboptions": [
         {
-            "label": "Crafter in the Vault",
+            "label": "pf2e-animist.crafter-in-the-vault",
             "value": "crafter-in-the-vault",
             "predicate": [
                 {
@@ -339,7 +339,7 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Custodian of Groves and Gardens",
+            "label": "pf2e-animist.custodian-of-groves-and-gardens",
             "value": "custodian-of-groves-and-gardens",
             "predicate": [
                 {
@@ -352,7 +352,7 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Echo of Lost Moments",
+            "label": "pf2e-animist.echo-of-lost-moments",
             "value": "echo-of-lost-moments",
             "predicate": [
                 {
@@ -365,7 +365,7 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Impostor in Hidden Places",
+            "label": "pf2e-animist.impostor-in-hidden-places",
             "value": "impostor-in-hidden-places",
             "predicate": [
                 {
@@ -378,7 +378,7 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Lurker in Devouring Dark",
+            "label": "pf2e-animist.lurker-in-devouring-dark",
             "value": "lurker-in-devouring-dark",
             "predicate": [
                 {
@@ -391,7 +391,7 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Monarch of the Fey Courts",
+            "label": "pf2e-animist.monarch-of-the-fey-courts",
             "value": "monarch-of-the-fey-courts",
             "predicate": [
                 {
@@ -404,7 +404,7 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Reveler in Lost Glee",
+            "label": "pf2e-animist.reveler-in-lost-glee",
             "value": "reveler-in-lost-glee",
             "predicate": [
                 {
@@ -417,7 +417,7 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Stalker in Darkened Boughs",
+            "label": "pf2e-animist.stalker-in-darkened-boughs",
             "value": "stalker-in-darkened-boughs",
             "predicate": [
                 {
@@ -430,7 +430,7 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Steward of Stone and Fire",
+            "label": "pf2e-animist.steward-of-stone-and-fire",
             "value": "steward-of-stone-and-fire",
             "predicate": [
                 {
@@ -443,7 +443,7 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Vanguard of Roaring Waters",
+            "label": "pf2e-animist.vanguard-of-roaring-waters",
             "value": "vanguard-of-roaring-waters",
             "predicate": [
                 {
@@ -456,7 +456,7 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Witness to Ancient Battles",
+            "label": "pf2e-animist.witness-to-ancient-battles",
             "value": "witness-to-ancient-battles",
             "predicate": [
                 {
@@ -469,13 +469,13 @@ export const FOURTH = {
             ]
         },
         {
-            "label": "Dispersed",
+            "label": "pf2e-animist.dispersed",
             "value": "dispersed"
         }
     ],
     "toggleable": true,
     "alwaysActive": true,
-    "label": "Fourth Apparition",
+    "label":"pf2e-animist.fourth-label",
     "value": true,
     "selection": "dispersed"
 }

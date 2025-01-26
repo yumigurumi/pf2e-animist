@@ -1,0 +1,21 @@
+{
+  "pf2e-animist": {
+    "primary-label": "Première apparition",
+    "secondary-label": "Deuxième apparition",
+    "third-label": "Troisième apparition",
+    "fourth-label": "Quatrième apparition",
+
+    "crafter-in-the-vault": "Fabricant de chambre forte",
+    "custodian-of-groves-and-gardens": "Conservateur des bosquets et jardins",
+    "echo-of-lost-moments": "Écho des derniers moments",
+    "impostor-in-hidden-places": "Imposteur des lieux cachés",
+    "lurker-in-devouring-dark": "Rôdeur dans l'obscurité dévorante",
+    "monarch-of-the-fey-courts": "Monarque des Cours féériques",
+    "reveler-in-lost-glee": "Révélateur de la joie perdue",
+    "stalker-in-darkened-boughs": "Traqueur des sombres bosquets",
+    "steward-of-stone-and-fire": "Régisseur de la pierre et du feu",
+    "vanguard-of-roaring-waters": "Avant-garde des eaux rugissantes",
+    "witness-to-ancient-battles": "Témoin d'anciennes batailles",
+    "dispersed": "Dispersée"
+  }
+}
