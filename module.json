@@ -15,6 +15,11 @@
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
     }
   ],
   "esmodules": [
@@ -53,7 +58,7 @@
         "manifest": "https://github.com/foundryvtt/pf2e/releases/latest/download/system.json",
         "compatibility": {
           "minimum": "6.6.0",
-          "verified": "6.6.0"
+          "verified": "6.8.4"
         }
       }
     ],
