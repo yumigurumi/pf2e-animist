@@ -1,3 +1,6 @@
+## Version 0.1.1
+- Auto support of animist dedication. Need to re-add feat 
+
 ## Version 0.1.0
 - Auto adding rules
 - Add Feat Support

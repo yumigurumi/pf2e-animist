@@ -53,14 +53,19 @@ async function getSpellEntries(actor) {
 
     if (focus) {
         await focus.delete()
-    }
-    let focusE = foundry.utils.deepClone(FOCUS_ENTRY);
-    focusE._id = foundry.utils.randomID()
-    focusE.flags[moduleName] = {
-        generated: true
+        focus = undefined;
     }
 
-    focus = (await actor.createEmbeddedDocuments("Item", [focusE]))[0];
+    if (actor?.class?.slug === 'animist') {
+        let focusE = foundry.utils.deepClone(FOCUS_ENTRY);
+        focusE._id = foundry.utils.randomID()
+        focusE.flags[moduleName] = {
+            generated: true
+        }
+
+        focus = (await actor.createEmbeddedDocuments("Item", [focusE]))[0];
+    }
+
 
     return {entry, focus}
 }
@@ -77,7 +82,7 @@ async function deleteLoreSpells(actor, entry, focus) {
             .filter(s => s.system?.location?.value === entry?.id && entry)
             .map(i => i.id),
         ...actor.itemTypes.spell
-            .filter(s => s.system?.location?.value === focus?.id && focus)
+            .filter(s => focus && s.system?.location?.value === focus?.id)
             .map(i => i.id)
     ];
     await actor.deleteEmbeddedDocuments(
@@ -100,6 +105,11 @@ async function createLores(actor) {
         newEffect.flags[moduleName] = {
             generated: true
         }
+        if (actor.level >= 16) {
+            newEffect.system.proficient.value = 3;
+        } else if (actor.level >= 8) {
+            newEffect.system.proficient.value = 2;
+        }
 
         return newEffect
     })
@@ -121,8 +131,11 @@ async function prepareSpell(uuid, spellEntry) {
 }
 
 async function createSpells(spellEntry, lores) {
-    let level = Math.ceil(spellEntry.actor.level / 2)
-    let apSpells = spellEntry.actor.getRollOptions()
+    let rollOptions = spellEntry.actor.getRollOptions();
+    let maxRank = rollOptions?.includes('class:animist')
+        ? Math.ceil(spellEntry.actor.level / 2)
+        : 0;
+    let apSpells = rollOptions
         .filter(o => APPARITION_OPTIONS.some(a => o.startsWith(a)))
         .map(s => s.replace(new RegExp(`${APPARITION_OPTIONS.join('|')}`, 'i'), ''))
         .map(r => APPARITIONS_SPELLCASTING[r] || [])
@@ -130,28 +143,28 @@ async function createSpells(spellEntry, lores) {
     let allSpells = []
     for (const spells of apSpells) {
         for (let i = 0; i < spells.length; i++) {
-            if (i > level) {
+            if (i > maxRank) {
                 break
             }
             allSpells.push(await prepareSpell(spells[i], spellEntry));
         }
     }
-    if (level >= 10) {
+    if (maxRank >= 10) {
         allSpells.push(await prepareSpell("Compendium.pf2e.spells-srd.Item.ckUOoqOM7Kg7VqxB", spellEntry));
     }
-    if (spellEntry.actor.getRollOptions().includes("feat:embodiment-of-the-balance")) {
+    if (rollOptions.includes("feat:embodiment-of-the-balance")) {
         allSpells.push(await prepareSpell("Compendium.pf2e.spells-srd.Item.rfZpqmj0AIIdkVIs", spellEntry));
         allSpells.push(await prepareSpell("Compendium.pf2e.spells-srd.Item.wdA52JJnsuQWeyqz", spellEntry));
     }
 
-    if (spellEntry.actor.getRollOptions().includes("feat:walk-the-wilds")) {
+    if (rollOptions.includes("feat:walk-the-wilds")) {
         allSpells.push(await prepareSpell("Compendium.pf2e.spells-srd.Item.wp09USMB3GIW1qbp", spellEntry));
     }
 
-    if (spellEntry.actor.getRollOptions().includes("feat:wind-seeker")) {
+    if (rollOptions.includes("feat:wind-seeker")) {
         allSpells.push(await prepareSpell("Compendium.pf2e.spells-srd.Item.NzXpEzcZAjuDTZjK", spellEntry));
     }
-    if (spellEntry.actor.getRollOptions().includes('feat:monstrous-inclinations') && (lores.includes('Forest') || lores.includes('Ocean'))) {
+    if (rollOptions.includes('feat:monstrous-inclinations') && (lores.includes('Forest') || lores.includes('Ocean'))) {
         allSpells.push(await prepareSpell("Compendium.pf2e.spells-srd.Item.8AMvNVOUEtxBCDvJ", spellEntry));
     }
 
@@ -161,6 +174,9 @@ async function createSpells(spellEntry, lores) {
 }
 
 async function createFocus(spellEntry, dualInvocation) {
+    if (!spellEntry) {
+        return;
+    }
     let focus = spellEntry.actor.getRollOptions()
         .filter(o => o.startsWith('primary-apparition:'))
         .map(s => s.replace(new RegExp(`${APPARITION_OPTIONS.join('|')}`, 'i'), ''))
@@ -189,37 +205,46 @@ async function createFocus(spellEntry, dualInvocation) {
 }
 
 Hooks.on("pf2e.restForTheNight", async (actor) => {
-    if (!actor || actor.class.slug !== 'animist') {
+    if (!actor) {
         return
     }
+    let r = actor.getRollOptions()
+    if (!r.includes("class:animist") && !r.includes("feat:animist-dedication")) {
+        return;
+    }
+
 
     let {entry, focus} = currentSpellEntries(actor)
     await deleteLoreSpells(actor, entry, focus)
     if (entry) {
-        entry.delete()
+        await entry.delete()
     }
     if (focus) {
-        focus.delete()
+        await focus.delete()
     }
 
     let aa = actor.itemTypes.feat.find(s => s.slug === 'apparition-attunement');
     let ta = actor.itemTypes.feat.find(s => s.slug === 'third-apparition');
     let fa = actor.itemTypes.feat.find(s => s.slug === 'fourth-apparition');
     if (aa) {
-        await actor.toggleRollOption("all", "primary-apparition", aa.id, true, "dispersed")
-        await actor.toggleRollOption("all", "secondary-apparition", aa.id, true, "dispersed")
+        actor.toggleRollOption("all", "primary-apparition", aa.id, true, "dispersed")
+        actor.toggleRollOption("all", "secondary-apparition", aa.id, true, "dispersed")
     }
     if (ta) {
-        await actor.toggleRollOption("all", "third-apparition", ta.id, true, "dispersed")
+        actor.toggleRollOption("all", "third-apparition", ta.id, true, "dispersed")
     }
     if (fa) {
-        await actor.toggleRollOption("all", "fourth-apparition", fa.id, true, "dispersed")
+        actor.toggleRollOption("all", "fourth-apparition", fa.id, true, "dispersed")
     }
 });
 
 Hooks.on("renderCharacterSheetPF2e", (sheet, html) => {
-    if (!sheet.object || sheet.object?.class?.slug !== 'animist' || !sheet.object.isOwner) {
+    if (!sheet.object || !sheet.object.isOwner) {
         return
+    }
+    let r = sheet.object.getRollOptions()
+    if (!r.includes("class:animist") && !r.includes("feat:animist-dedication")) {
+        return;
     }
     let btn = $(`
         <a class="roll-icon" data-tooltip="Apply changes of Apparitions">
@@ -260,6 +285,12 @@ Hooks.on("preCreateItem", (item) => {
         if (!item.rules.length) {
             item.updateSource({
                 "system.rules": [FOURTH]
+            })
+        }
+    } else if (item?.sourceId === "Compendium.pf2e.feats-srd.Item.5hFFM5TmhKYSQwtG") {
+        if (!item.rules.length) {
+            item.updateSource({
+                "system.rules": [FIRST]
             })
         }
     }
