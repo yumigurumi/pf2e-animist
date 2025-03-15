@@ -26,8 +26,12 @@ async function applyChanges(actor) {
 }
 
 function currentSpellEntries(actor) {
-    let entry = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Apparition Attunement');
-    let focus = actor.itemTypes.spellcastingEntry.find(s => s.name === 'Vessel Spells');
+    let featName = actor.items.find(i => i.sourceId === "Compendium.pf2e.classfeatures.Item.AHMjKkIx21AoMc9W")?.name
+
+    let entry = actor.itemTypes.spellcastingEntry
+        .find(s => s.name === 'Apparition Attunement' || s.name === featName);
+    let focus = actor.itemTypes.spellcastingEntry
+        .find(s => s.name === 'Vessel Spells' || s.name === game.i18n.localize("pf2e-dailies.animist.spellcasting.focus"));
 
     return {entry, focus}
 }
@@ -49,6 +53,11 @@ async function getSpellEntries(actor) {
     spellE.flags[moduleName] = {
         generated: true
     }
+    let featName = actor.items
+        .find(i => i.sourceId === "Compendium.pf2e.classfeatures.Item.AHMjKkIx21AoMc9W")?.name
+    if (featName) {
+        spellE.name = featName
+    }
     entry = (await actor.createEmbeddedDocuments("Item", [spellE]))[0];
 
     if (focus) {
@@ -62,7 +71,9 @@ async function getSpellEntries(actor) {
         focusE.flags[moduleName] = {
             generated: true
         }
-
+        if (game.modules.get('pf2e-dailies')?.active) {
+            focusE.name = game.i18n.localize("pf2e-dailies.animist.spellcasting.focus");
+        }
         focus = (await actor.createEmbeddedDocuments("Item", [focusE]))[0];
     }
 
@@ -213,7 +224,6 @@ Hooks.on("pf2e.restForTheNight", async (actor) => {
         return;
     }
 
-
     let {entry, focus} = currentSpellEntries(actor)
     await deleteLoreSpells(actor, entry, focus)
     if (entry) {
@@ -270,29 +280,21 @@ Hooks.once("init", () => {
 
 Hooks.on("preCreateItem", (item) => {
     if (item?.sourceId === "Compendium.pf2e.classfeatures.Item.AHMjKkIx21AoMc9W") {
-        if (!item.rules.length) {
-            item.updateSource({
-                "system.rules": [FIRST, SECOND]
-            })
-        }
+        item.updateSource({
+            "system.rules": [FIRST, SECOND, ...item.rules.map(r => r.toObject())]
+        })
     } else if (item?.sourceId === "Compendium.pf2e.classfeatures.Item.bRAjde9LlavcOUuM") {
-        if (!item.rules.length) {
-            item.updateSource({
-                "system.rules": [THIRD]
-            })
-        }
+        item.updateSource({
+            "system.rules": [THIRD, ...item.rules.map(r => r.toObject())]
+        })
     } else if (item?.sourceId === "Compendium.pf2e.classfeatures.Item.avLo2Jl3mNWssp0W") {
-        if (!item.rules.length) {
-            item.updateSource({
-                "system.rules": [FOURTH]
-            })
-        }
+        item.updateSource({
+            "system.rules": [FOURTH, ...item.rules.map(r => r.toObject())]
+        })
     } else if (item?.sourceId === "Compendium.pf2e.feats-srd.Item.5hFFM5TmhKYSQwtG") {
-        if (!item.rules.length) {
-            item.updateSource({
-                "system.rules": [FIRST]
-            })
-        }
+        item.updateSource({
+            "system.rules": [FIRST, ...item.rules.map(r => r.toObject())]
+        })
     }
 })
 
