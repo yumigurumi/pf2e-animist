@@ -38,45 +38,40 @@ function currentSpellEntries(actor) {
 
 async function getSpellEntries(actor) {
     let {entry, focus} = currentSpellEntries(actor)
-    if (entry) {
-        await entry.delete()
-    }
-    let spellE = foundry.utils.deepClone(SPELLCASTING_ENTRY);
+    if (!entry) {
+        let spellE = foundry.utils.deepClone(SPELLCASTING_ENTRY);
 
-    Object.keys(spellE.system.slots).filter(k => k !== 'slot0' && k !== 'slot11')
-        .forEach((element, index) => {
-            spellE.system.slots[element].value = LEVEL_SLOT[actor.level - 1][index]
-            spellE.system.slots[element].max = LEVEL_SLOT[actor.level - 1][index]
-        })
+        Object.keys(spellE.system.slots).filter(k => k !== 'slot0' && k !== 'slot11')
+            .forEach((element, index) => {
+                spellE.system.slots[element].value = LEVEL_SLOT[actor.level - 1][index]
+                spellE.system.slots[element].max = LEVEL_SLOT[actor.level - 1][index]
+            })
 
-    spellE._id = foundry.utils.randomID()
-    spellE.flags[moduleName] = {
-        generated: true
-    }
-    let featName = actor.items
-        .find(i => i.sourceId === "Compendium.pf2e.classfeatures.Item.AHMjKkIx21AoMc9W")?.name
-    if (featName) {
-        spellE.name = featName
-    }
-    entry = (await actor.createEmbeddedDocuments("Item", [spellE]))[0];
-
-    if (focus) {
-        await focus.delete()
-        focus = undefined;
-    }
-
-    if (actor?.class?.slug === 'animist') {
-        let focusE = foundry.utils.deepClone(FOCUS_ENTRY);
-        focusE._id = foundry.utils.randomID()
-        focusE.flags[moduleName] = {
+        spellE._id = foundry.utils.randomID()
+        spellE.flags[moduleName] = {
             generated: true
         }
-        if (game.modules.get('pf2e-dailies')?.active) {
-            focusE.name = game.i18n.localize("pf2e-dailies.animist.spellcasting.focus");
+        let featName = actor.items
+            .find(i => i.sourceId === "Compendium.pf2e.classfeatures.Item.AHMjKkIx21AoMc9W")?.name
+        if (featName) {
+            spellE.name = featName
         }
-        focus = (await actor.createEmbeddedDocuments("Item", [focusE]))[0];
+        entry = (await actor.createEmbeddedDocuments("Item", [spellE]))[0];
     }
 
+    if (!focus) {
+        if (actor?.class?.slug === 'animist') {
+            let focusE = foundry.utils.deepClone(FOCUS_ENTRY);
+            focusE._id = foundry.utils.randomID()
+            focusE.flags[moduleName] = {
+                generated: true
+            }
+            if (game.modules.get('pf2e-dailies')?.active) {
+                focusE.name = game.i18n.localize("pf2e-dailies.animist.spellcasting.focus");
+            }
+            focus = (await actor.createEmbeddedDocuments("Item", [focusE]))[0];
+        }
+    }
 
     return {entry, focus}
 }
@@ -216,6 +211,9 @@ async function createFocus(spellEntry, dualInvocation) {
 }
 
 Hooks.on("pf2e.restForTheNight", async (actor) => {
+    if (game.modules.get('pf2e-dailies')?.active) {
+        return
+    }
     if (!actor) {
         return
     }

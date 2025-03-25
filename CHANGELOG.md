@@ -1,3 +1,6 @@
+## Version 0.1.3
+- Fix handle expended spell slots
+
 ## Version 0.1.2
 - Add lang compatibilities
 
