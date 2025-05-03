@@ -1,0 +1,94 @@
+{
+  "_id": "4z3wnyYUL6K9bikB",
+  "img": "icons/equipment/head/helm-barbute-horned-gold-red.webp",
+  "name": "Effect: Avatar Form (Whisper Hiding in Shadows)",
+  "system": {
+    "description": {
+      "value": ""
+    },
+    "duration": {
+      "expiry": "turn-end",
+      "sustained": false,
+      "unit": "minutes",
+      "value": 1
+    },
+    "level": {
+      "value": 1
+    },
+    "rules": [
+      {
+        "key": "BattleForm",
+        "overrides": {
+          "armorClass": {
+            "modifier": "25 + @actor.level"
+          },
+          "senses": {
+            "darkvision": {}
+          },
+          "size": "huge",
+          "skills": {
+            "athletics": {
+              "modifier": 35
+            }
+          },
+          "speeds": {
+            "land": 50,
+            "fly": 50
+          },
+          "strikes": {
+            "shadowed-touch": {
+              "ability": "str",
+              "category": "unarmed",
+              "label": "Shadowed touch",
+              "damage": {
+                "damageType": "void",
+                "dice": 6,
+                "die": "d10",
+                "modifier": 6
+              },
+              "traits": [
+                "reach-15",
+                "versatile-cold"
+              ]
+            },
+            "whisper-of-despair ": {
+              "ability": "dex",
+              "category": "unarmed",
+              "label": "Whisper of despair ",
+              "damage": {
+                "damageType": "void",
+                "dice": 6,
+                "die": "d6",
+                "modifier": 6
+              },
+              "traits": [],
+              "maxRange": 120
+            }
+          },
+          "tempHP": 30,
+          "traits": [
+            "huge"
+          ]
+        }
+      }
+    ],
+    "source": {
+      "value": ""
+    },
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "rarity": "common",
+      "value": []
+    },
+    "slug": "effect-avatar-form-whisper-hiding-in-shadows"
+  },
+  "type": "effect",
+  "_key": "!items!4z3wnyYUL6K9bikB"
+}

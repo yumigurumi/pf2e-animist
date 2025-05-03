@@ -1,0 +1,96 @@
+{
+  "_id": "F6OkAJYAoGo2GIYX",
+  "img": "icons/equipment/head/helm-barbute-horned-gold-red.webp",
+  "name": "Effect: Avatar Form (Devourer of Lost Time)",
+  "system": {
+    "description": {
+      "value": ""
+    },
+    "duration": {
+      "expiry": "turn-end",
+      "sustained": false,
+      "unit": "minutes",
+      "value": 1
+    },
+    "level": {
+      "value": 1
+    },
+    "rules": [
+      {
+        "key": "BattleForm",
+        "overrides": {
+          "armorClass": {
+            "modifier": "25 + @actor.level"
+          },
+          "senses": {
+            "darkvision": {}
+          },
+          "size": "huge",
+          "skills": {
+            "athletics": {
+              "modifier": 35
+            }
+          },
+          "speeds": {
+            "land": 30,
+            "fly": 50
+          },
+          "strikes": {
+            "devour-potential": {
+              "ability": "str",
+              "category": "unarmed",
+              "label": "Devour potential",
+              "damage": {
+                "damageType": "void",
+                "dice": 6,
+                "die": "d10",
+                "modifier": 6
+              },
+              "traits": [
+                "reach-15",
+                "void"
+              ]
+            },
+            "scream-of-loss": {
+              "ability": "dex",
+              "category": "unarmed",
+              "label": "Scream of loss",
+              "damage": {
+                "damageType": "void",
+                "dice": 6,
+                "die": "d6",
+                "modifier": 6
+              },
+              "traits": [
+                "void"
+              ],
+              "maxRange": 120
+            }
+          },
+          "tempHP": 30,
+          "traits": [
+            "huge"
+          ]
+        }
+      }
+    ],
+    "source": {
+      "value": ""
+    },
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "rarity": "common",
+      "value": []
+    },
+    "slug": "effect-avatar-form-devourer-of-lost-time"
+  },
+  "type": "effect",
+  "_key": "!items!F6OkAJYAoGo2GIYX"
+}

@@ -1,0 +1,97 @@
+{
+  "_id": "HAOvIqZ6hCFRWehq",
+  "img": "icons/equipment/head/helm-barbute-horned-gold-red.webp",
+  "name": "Effect: Avatar Form (Peaceful Reaches)",
+  "system": {
+    "description": {
+      "value": ""
+    },
+    "duration": {
+      "expiry": "turn-end",
+      "sustained": false,
+      "unit": "minutes",
+      "value": 1
+    },
+    "level": {
+      "value": 1
+    },
+    "rules": [
+      {
+        "key": "BattleForm",
+        "overrides": {
+          "armorClass": {
+            "modifier": "25 + @actor.level"
+          },
+          "senses": {
+            "darkvision": {}
+          },
+          "size": "huge",
+          "skills": {
+            "athletics": {
+              "modifier": 35
+            }
+          },
+          "speeds": {
+            "land": 60
+          },
+          "strikes": {
+            "gardens-cradle": {
+              "ability": "str",
+              "category": "unarmed",
+              "label": "Garden's cradle",
+              "damage": {
+                "damageType": "bludgeoning",
+                "dice": 6,
+                "die": "d6",
+                "modifier": 6
+              },
+              "traits": [
+                "reach-10",
+                "trip",
+                "agile",
+                "nonlethal"
+              ]
+            },
+            "impose-peace": {
+              "ability": "dex",
+              "category": "unarmed",
+              "label": "Impose peace",
+              "damage": {
+                "damageType": "mental",
+                "dice": 6,
+                "die": "d6",
+                "modifier": 6
+              },
+              "traits": [
+                "nonlethal"
+              ],
+              "maxRange": 120
+            }
+          },
+          "tempHP": 30,
+          "traits": [
+            "huge"
+          ]
+        }
+      }
+    ],
+    "source": {
+      "value": ""
+    },
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "rarity": "common",
+      "value": []
+    },
+    "slug": "effect-avatar-form-peaceful-reaches"
+  },
+  "type": "effect",
+  "_key": "!items!HAOvIqZ6hCFRWehq"
+}

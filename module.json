@@ -2,7 +2,7 @@
   "id": "pf2e-animist",
   "title": "PF2e Animist",
   "description": "",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "authors": [
     {
       "name": "Reyzor",
@@ -23,7 +23,7 @@
     }
   ],
   "esmodules": [
-    "scripts/main.js"
+    "main.mjs"
   ],
   "styles": [
     "styles/main.css"
@@ -44,12 +44,12 @@
     }
   ],
   "compatibility": {
-    "minimum": "12.331",
-    "verified": "12.331"
+    "minimum": "13.341",
+    "verified": "13.341"
   },
   "url": "https://github.com/reyzor1991/pf2e-wiki/wiki/PF2e-Animist",
-  "manifest": "https://www.dropbox.com/scl/fi/xyf89yw5jzf2cr6rmemac/module.json?rlkey=djq1j0d9lfzrz2ohuu0yyx36g&st=m0r9klve&dl=1",
-  "download": "https://www.dropbox.com/scl/fi/35s9x465itqm3ppb4awqu/pf2e-animist.zip?rlkey=k7cql6yj0dgmif5x1e8slwd7c&st=t0rwknbn&dl=1",
+  "manifest": "https://www.dropbox.com/scl/fi/4ha231fwfytu00q69t2jx/module.json?rlkey=gkjuf1ck10cti28du65uf8qz8&st=kdxi9btr&dl=1",
+  "download": "https://www.dropbox.com/scl/fi/kb5p6o2stvv58sbd8h92m/pf2e-animist.zip?rlkey=62hlv9ysqomukfp847i0xjwl6&st=xoxjjdak&dl=1",
   "relationships": {
     "systems": [
       {
@@ -57,8 +57,8 @@
         "type": "system",
         "manifest": "https://github.com/foundryvtt/pf2e/releases/latest/download/system.json",
         "compatibility": {
-          "minimum": "6.6.0",
-          "verified": "6.8.4"
+          "minimum": "7.0.0",
+          "verified": "7.0.0"
         }
       }
     ],

@@ -1,0 +1,122 @@
+{
+  "_id": "sBr5MnEyjJyT6qwa",
+  "img": "icons/equipment/head/helm-barbute-horned-gold-red.webp",
+  "name": "Effect: Avatar Form (Incarnate Dungeon)",
+  "system": {
+    "description": {
+      "value": ""
+    },
+    "duration": {
+      "expiry": "turn-end",
+      "sustained": false,
+      "unit": "minutes",
+      "value": 1
+    },
+    "level": {
+      "value": 1
+    },
+    "rules": [
+      {
+        "choices": [
+          {
+            "label": "PF2E.Actor.Speed.Type.Burrow",
+            "value": "burrow"
+          },
+          {
+            "label": "PF2E.Actor.Speed.Type.Fly",
+            "value": "fly"
+          }
+        ],
+        "flag": "traveler",
+        "key": "ChoiceSet"
+      },
+      {
+        "key": "BaseSpeed",
+        "selector": "{item|flags.pf2e.rulesSelections.traveler}",
+        "value": 50
+      },
+      {
+        "key": "Note",
+        "selector": "dungeon-trap-damage",
+        "text": "PF2E.BattleForm.Note.Grab",
+        "title": "{item|name}"
+      },
+      {
+        "hasHands": true,
+        "key": "BattleForm",
+        "overrides": {
+          "armorClass": {
+            "modifier": "25 + @actor.level"
+          },
+          "senses": {
+            "darkvision": {}
+          },
+          "size": "huge",
+          "skills": {
+            "athletics": {
+              "modifier": 35
+            }
+          },
+          "speeds": {
+            "land": 50
+          },
+          "strikes": {
+            "dungeon-trap": {
+              "ability": "str",
+              "category": "unarmed",
+              "label": "Dungeon trap",
+              "damage": {
+                "damageType": "slashing",
+                "dice": 6,
+                "die": "d6",
+                "modifier": 6
+              },
+              "traits": [
+                "reach-10",
+                "versatile-b",
+                "versatile-p"
+              ]
+            },
+            "deadly-darts": {
+              "ability": "dex",
+              "category": "unarmed",
+              "label": "Deadly darts",
+              "damage": {
+                "damageType": "piercing",
+                "dice": 6,
+                "die": "d6",
+                "modifier": 6
+              },
+              "traits": [
+                "versatile-poison"
+              ],
+              "maxRange": 120
+            }
+          },
+          "tempHP": 30,
+          "traits": [
+            "huge"
+          ]
+        }
+      }
+    ],
+    "source": {
+      "value": ""
+    },
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "rarity": "common",
+      "value": []
+    },
+    "slug": "effect-avatar-form-incarnate-dungeon"
+  },
+  "type": "effect",
+  "_key": "!items!sBr5MnEyjJyT6qwa"
+}

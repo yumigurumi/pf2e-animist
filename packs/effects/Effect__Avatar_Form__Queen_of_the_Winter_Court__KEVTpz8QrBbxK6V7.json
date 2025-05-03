@@ -1,0 +1,99 @@
+{
+  "_id": "KEVTpz8QrBbxK6V7",
+  "img": "icons/equipment/head/helm-barbute-horned-gold-red.webp",
+  "name": "Effect: Avatar Form (Queen of the Winter Court)",
+  "system": {
+    "description": {
+      "value": ""
+    },
+    "duration": {
+      "expiry": "turn-end",
+      "sustained": false,
+      "unit": "minutes",
+      "value": 1
+    },
+    "level": {
+      "value": 1
+    },
+    "rules": [
+      {
+        "key": "BattleForm",
+        "overrides": {
+          "armorClass": {
+            "modifier": "25 + @actor.level"
+          },
+          "senses": {
+            "darkvision": {}
+          },
+          "size": "huge",
+          "skills": {
+            "athletics": {
+              "modifier": 35
+            }
+          },
+          "speeds": {
+            "land": 50,
+            "fly": 50,
+            "swim": 50
+          },
+          "strikes": {
+            "queens-caress": {
+              "ability": "str",
+              "category": "unarmed",
+              "label": "Queen's caress",
+              "damage": {
+                "damageType": "mental",
+                "dice": 6,
+                "die": "d10",
+                "modifier": 6
+              },
+              "traits": [
+                "reach-15",
+                "agile"
+              ]
+            },
+            "monarchs-spite": {
+              "ability": "dex",
+              "category": "unarmed",
+              "label": "Monarch's spite",
+              "damage": {
+                "damageType": "mental",
+                "dice": 6,
+                "die": "d6",
+                "modifier": 6
+              },
+              "traits": [
+                "versatile-poison",
+                "mental",
+                "versatile-cold"
+              ],
+              "maxRange": 120
+            }
+          },
+          "tempHP": 30,
+          "traits": [
+            "huge"
+          ]
+        }
+      }
+    ],
+    "source": {
+      "value": ""
+    },
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "rarity": "common",
+      "value": []
+    },
+    "slug": "effect-avatar-form-queen-of-the-winter-court"
+  },
+  "type": "effect",
+  "_key": "!items!KEVTpz8QrBbxK6V7"
+}

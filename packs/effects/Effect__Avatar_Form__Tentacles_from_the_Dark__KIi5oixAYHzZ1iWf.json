@@ -1,0 +1,86 @@
+{
+  "_id": "KIi5oixAYHzZ1iWf",
+  "img": "icons/equipment/head/helm-barbute-horned-gold-red.webp",
+  "name": "Effect: Avatar Form (Tentacles from the Dark)",
+  "system": {
+    "description": {
+      "value": ""
+    },
+    "duration": {
+      "expiry": "turn-end",
+      "sustained": false,
+      "unit": "minutes",
+      "value": 1
+    },
+    "level": {
+      "value": 1
+    },
+    "rules": [
+      {
+        "key": "Note",
+        "selector": "grasping-tentacles-damage",
+        "text": "PF2E.BattleForm.Note.Grab",
+        "title": "{item|name}"
+      },
+      {
+        "key": "BattleForm",
+        "overrides": {
+          "armorClass": {
+            "modifier": "25 + @actor.level"
+          },
+          "senses": {
+            "darkvision": {}
+          },
+          "size": "huge",
+          "skills": {
+            "athletics": {
+              "modifier": 35
+            }
+          },
+          "speeds": {
+            "land": 70,
+            "swim": 70
+          },
+          "strikes": {
+            "grasping-tentacles": {
+              "ability": "str",
+              "category": "unarmed",
+              "label": "Grasping tentacles",
+              "damage": {
+                "damageType": "bludgeoning",
+                "dice": 6,
+                "die": "d10",
+                "modifier": 6
+              },
+              "traits": [
+                "reach-30"
+              ]
+            }
+          },
+          "tempHP": 30,
+          "traits": [
+            "huge"
+          ]
+        }
+      }
+    ],
+    "source": {
+      "value": ""
+    },
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "rarity": "common",
+      "value": []
+    },
+    "slug": "effect-avatar-form-tentacles-from-the-dark"
+  },
+  "type": "effect",
+  "_key": "!items!KIi5oixAYHzZ1iWf"
+}

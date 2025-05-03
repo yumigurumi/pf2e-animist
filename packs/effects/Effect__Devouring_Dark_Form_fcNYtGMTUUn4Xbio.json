@@ -1,0 +1,79 @@
+{
+  "_id": "fcNYtGMTUUn4Xbio",
+  "img": "icons/magic/nature/root-vine-thorned-fire-purple.webp",
+  "name": "Effect: Devouring Dark Form",
+  "system": {
+    "description": {
+      "value": "Granted by @UUID[Compendium.pf2e.spells-srd.Item.wTldMJx0vyBAehrI]"
+    },
+    "duration": {
+      "expiry": "turn-end",
+      "sustained": true,
+      "unit": "minutes",
+      "value": 1
+    },
+    "level": {
+      "value": 1
+    },
+    "rules": [
+      {
+        "adjustName": true,
+        "choices": [
+          {
+            "value": "Compendium.pf2e-animist.effects.Item.iUIUDgA2ecNKWjYp"
+          },
+          {
+            "value": "Compendium.pf2e.spell-effects.Item.qPaEEhczUWCQo6ux",
+            "predicate": [
+              {
+                "gte": [
+                  "{item|level}",
+                  2
+                ]
+              }
+            ]
+          },
+          {
+            "value": "Compendium.pf2e-animist.effects.Item.Qp0dlhJaCzXIx73r",
+            "predicate": [
+              {
+                "gte": [
+                  "{item|level}",
+                  5
+                ]
+              }
+            ]
+          }
+        ],
+        "key": "ChoiceSet",
+        "prompt": "Select a Effect.",
+        "flag": "spellEffectDevouringDarkForm"
+      },
+      {
+        "key": "GrantItem",
+        "uuid": "{item|flags.pf2e.rulesSelections.spellEffectDevouringDarkForm}",
+        "onDeleteActions": {
+          "grantee": "cascade"
+        }
+      }
+    ],
+    "source": {
+      "value": ""
+    },
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "rarity": "common",
+      "value": []
+    },
+    "slug": "effect-devouring-dark-form"
+  },
+  "type": "effect",
+  "_key": "!items!fcNYtGMTUUn4Xbio"
+}

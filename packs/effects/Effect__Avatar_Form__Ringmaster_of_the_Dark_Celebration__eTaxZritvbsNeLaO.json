@@ -1,0 +1,96 @@
+{
+  "_id": "eTaxZritvbsNeLaO",
+  "img": "icons/equipment/head/helm-barbute-horned-gold-red.webp",
+  "name": "Effect: Avatar Form (Ringmaster of the Dark Celebration)",
+  "system": {
+    "description": {
+      "value": ""
+    },
+    "duration": {
+      "expiry": "turn-end",
+      "sustained": false,
+      "unit": "minutes",
+      "value": 1
+    },
+    "level": {
+      "value": 1
+    },
+    "rules": [
+      {
+        "key": "BattleForm",
+        "overrides": {
+          "armorClass": {
+            "modifier": "25 + @actor.level"
+          },
+          "senses": {
+            "darkvision": {}
+          },
+          "size": "huge",
+          "skills": {
+            "athletics": {
+              "modifier": 35
+            }
+          },
+          "speeds": {
+            "land": 50
+          },
+          "strikes": {
+            "ringmasters-whip": {
+              "ability": "str",
+              "category": "unarmed",
+              "label": "Ringmaster's whip",
+              "damage": {
+                "damageType": "slashing",
+                "dice": 6,
+                "die": "d10",
+                "modifier": 6
+              },
+              "traits": [
+                "reach-15",
+                "trip"
+              ]
+            },
+            "feast-of-the-lost": {
+              "ability": "dex",
+              "category": "unarmed",
+              "label": "Feast of the lost",
+              "damage": {
+                "damageType": "acid",
+                "dice": 6,
+                "die": "d6",
+                "modifier": 6
+              },
+              "traits": [
+                "acid",
+                "versatile-void"
+              ],
+              "maxRange": 120
+            }
+          },
+          "tempHP": 30,
+          "traits": [
+            "huge"
+          ]
+        }
+      }
+    ],
+    "source": {
+      "value": ""
+    },
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "rarity": "common",
+      "value": []
+    },
+    "slug": "effect-avatar-form-ringmaster-of-the-dark-celebration"
+  },
+  "type": "effect",
+  "_key": "!items!eTaxZritvbsNeLaO"
+}

@@ -1,0 +1,60 @@
+{
+  "_id": "iUIUDgA2ecNKWjYp",
+  "img": "systems/pf2e/icons/unarmed-attacks/tentacle.webp",
+  "name": "Effect: Tentacle Attack",
+  "system": {
+    "description": {
+      "value": ""
+    },
+    "duration": {
+      "expiry": "turn-end",
+      "sustained": true,
+      "unit": "minutes",
+      "value": 1
+    },
+    "level": {
+      "value": 1
+    },
+    "rules": [
+      {
+        "category": "unarmed",
+        "damage": {
+          "base": {
+            "damageType": "bludgeoning",
+            "dice": 1,
+            "die": "d8"
+          }
+        },
+        "group": "brawling",
+        "img": "systems/pf2e/icons/unarmed-attacks/tentacle.webp",
+        "key": "Strike",
+        "label": "PF2E.BattleForm.Attack.Tentacle",
+        "range": null,
+        "slug": "tentacle",
+        "traits": [
+          "grapple",
+          "reach",
+          "unarmed"
+        ]
+      }
+    ],
+    "source": {
+      "value": ""
+    },
+    "start": {
+      "initiative": null,
+      "value": 0
+    },
+    "target": null,
+    "tokenIcon": {
+      "show": true
+    },
+    "traits": {
+      "rarity": "common",
+      "value": []
+    },
+    "slug": "effect-tentacle-attack"
+  },
+  "type": "effect",
+  "_key": "!items!iUIUDgA2ecNKWjYp"
+}

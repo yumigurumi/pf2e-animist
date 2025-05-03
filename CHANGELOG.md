@@ -1,3 +1,6 @@
+## Version 0.2.0
+- Foundry V13
+
 ## Version 0.1.3
 - Fix handle expended spell slots
 
