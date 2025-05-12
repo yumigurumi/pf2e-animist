@@ -276,6 +276,12 @@ Hooks.once("init", () => {
     });
 });
 
+Hooks.once("setup", () => {
+    game.modules.get(moduleName).macros = {
+        applyChanges
+    }
+})
+
 Hooks.on("preCreateItem", (item) => {
     if (item?.sourceId === "Compendium.pf2e.classfeatures.Item.AHMjKkIx21AoMc9W") {
         item.updateSource({

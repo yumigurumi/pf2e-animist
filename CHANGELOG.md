@@ -1,3 +1,7 @@
+## Version 0.1.4
+- Add path for apply changes
+- game.modules.get("pf2e-animist").macros.applyChanges
+
 ## Version 0.1.3
 - Fix handle expended spell slots
 
