@@ -1,3 +1,7 @@
+## Version 0.2.1
+- Add path for apply changes
+- game.modules.get("pf2e-animist").macros.applyChanges
+
 ## Version 0.2.0
 - Foundry V13
 
