@@ -47,6 +47,10 @@ export const FIRST = {
             "value": "witness-to-ancient-battles"
         },
         {
+            "label": "pf2e-animist.ugly-cute-apparition",
+            "value": "ugly-cute-apparition"
+        },
+        {
             "label": "pf2e-animist.dispersed",
             "value": "dispersed"
         }
@@ -158,6 +162,15 @@ export const SECOND = {
             "predicate": [
                 {
                     "not": "primary-apparition:witness-to-ancient-battles"
+                }
+            ]
+        },
+        {
+            "label": "pf2e-animist.ugly-cute-apparition",
+            "value": "ugly-cute-apparition",
+            "predicate": [
+                {
+                    "not": "primary-apparition:ugly-cute-apparition"
                 }
             ]
         },
@@ -305,6 +318,18 @@ export const THIRD = {
                     "nor": [
                         "primary-apparition:witness-to-ancient-battles",
                         "secondary-apparition:witness-to-ancient-battles"
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "pf2e-animist.ugly-cute-apparition",
+            "value": "ugly-cute-apparition",
+            "predicate": [
+                {
+                    "nor": [
+                        "primary-apparition:ugly-cute-apparition",
+                        "secondary-apparition:ugly-cute-apparition"
                     ]
                 }
             ]
@@ -469,6 +494,19 @@ export const FOURTH = {
             ]
         },
         {
+            "label": "pf2e-animist.ugly-cute-apparition",
+            "value": "ugly-cute-apparition",
+            "predicate": [
+                {
+                    "nor": [
+                        "primary-apparition:ugly-cute-apparition",
+                        "secondary-apparition:ugly-cute-apparition",
+                        "third-apparition:ugly-cute-apparition"
+                    ]
+                }
+            ]
+        },
+        {
             "label": "pf2e-animist.dispersed",
             "value": "dispersed"
         }
@@ -494,6 +532,7 @@ export const APPARITIONS = {
     'steward-of-stone-and-fire': ["Mountain", "Volcano"],
     'vanguard-of-roaring-waters': ["Mountain", "River"],
     'witness-to-ancient-battles': ["Battlegrounds", "Heraldry"],
+    'ugly-cute-apparition': ["Willowshore", "Mountain"],
 }
 export const UUID_APPARITIONS = {
     "Compendium.pf2e.classfeatures.Item.csrF8UOWPl1rr6st": "crafter-in-the-vault",
@@ -507,6 +546,7 @@ export const UUID_APPARITIONS = {
     'Compendium.pf2e.classfeatures.Item.ILGq8LQBnwsAz2jK': 'steward-of-stone-and-fire',
     'Compendium.pf2e.classfeatures.Item.M3q0KIyuMvSgUZH7': 'vanguard-of-roaring-waters',
     "Compendium.pf2e.classfeatures.Item.k9P2mXRjyy5X24rH": 'witness-to-ancient-battles',
+    "Compendium.pf2e-animist.classfeatures.Item.6viUhzfdxoBGYa7G": 'ugly-cute-apparition',
 }
 
 export const VESSEL_FOCUS = {
@@ -521,6 +561,7 @@ export const VESSEL_FOCUS = {
     'steward-of-stone-and-fire': "Compendium.pf2e.spells-srd.Item.PrlR2sLWeiuTcPF2",
     'vanguard-of-roaring-waters': "Compendium.pf2e.spells-srd.Item.ew4ToaTU3o8ahKio",
     'witness-to-ancient-battles': "Compendium.pf2e.spells-srd.Item.X4On99Nti8gjWywG",
+    'ugly-cute-apparition': "Compendium.pf2e-animist.spells-srd.Item.MOivCBpdUaiL7bFG",
 }
 
 export const APPARITIONS_SPELLCASTING = {
@@ -645,6 +686,18 @@ export const APPARITIONS_SPELLCASTING = {
         "Compendium.pf2e.spells-srd.Item.yLJROsQtyrPIKcDx",
     ],
     'witness-to-ancient-battles': [
+        "Compendium.pf2e.spells-srd.Item.TVKNbcgTee19PXZR",
+        "Compendium.pf2e.spells-srd.Item.Gb7SeieEvd0pL2Eh",
+        "Compendium.pf2e.spells-srd.Item.wzctak6BxOW8xvFV",
+        "Compendium.pf2e.spells-srd.Item.AMEu5zzLN7uCX645",
+        "Compendium.pf2e.spells-srd.Item.8M03UxGXjYyDFAoy",
+        "Compendium.pf2e.spells-srd.Item.hghGRzOSzEl4UXdS",
+        "Compendium.pf2e.spells-srd.Item.0XP2XOxT9VSiXFDr",
+        "Compendium.pf2e.spells-srd.Item.AlbpWWN87yGegoAF",
+        "Compendium.pf2e.spells-srd.Item.qlxM7Ik3uUeUIOcv",
+        "Compendium.pf2e.spells-srd.Item.ZqmP9gijBmK7y8Xy",
+    ],
+    'ugly-cute-apparition': [
         "Compendium.pf2e.spells-srd.Item.TVKNbcgTee19PXZR",
         "Compendium.pf2e.spells-srd.Item.Gb7SeieEvd0pL2Eh",
         "Compendium.pf2e.spells-srd.Item.wzctak6BxOW8xvFV",

@@ -1,0 +1,71 @@
+{
+  "folder": "Q4XpJvsEofOUKVU0",
+  "name": "Ugly Cute",
+  "type": "feat",
+  "effects": [],
+  "system": {
+    "_migration": {
+      "version": 0.935,
+      "previous": null
+    },
+    "description": {
+      "value": "<p>\"Ugly Cute\" is the affectionate nickname given to the stone spider that guards the town of Willowshore, a friendly celestial being that inhabits a stone statue as their vessel and stands watch over the small rural town. As the foremost animist of this settlement, you have learned how to use your latent spiritual energy to bring the abilities of the spider with you in your travels.</p><hr /><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>Apparition Skills</strong> Willowshore Lore, Mountain Lore</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>Apparition Spells</strong></span></p><ul><li><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>Cantrip</strong> @UUID[Compendium.pf2e.spells-srd.Item.zA0jNIBRgLsyTpbm]{Scatter Scree}</span></p></li><li><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>1st</strong> @UUID[Compendium.pf2e.spells-srd.Item.lKcsmeOrgHtK4xQa]{Summon Construct} (summoned creature gains the celestial trait)</span></p></li><li><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>2nd</strong> Web</span></p></li><li><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>3rd</strong> @UUID[Compendium.pf2e.spells-srd.Item.yM3KTTSAIHhyuP14]{Dream Message}</span></p></li><li><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>4th</strong> @UUID[Compendium.pf2e.spells-srd.Item.2BV2yYPfVJ5zirZt]{Mountain Resilience}</span></p></li><li><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>5th</strong> @UUID[Compendium.pf2e.spells-srd.Item.xFp4EwVcYwSG336t]{Slither} (appears as spiders)</span></p></li><li><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>6th</strong> @UUID[Compendium.pf2e.spells-srd.Item.jj5d830iUi2ZlQfs]{Blessed Boundary}</span></p></li><li><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>7th</strong> @UUID[Compendium.pf2e.spells-srd.Item.jBGAYmR0BkkbpJvG]{Visions of Danger}</span></p></li><li><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>8th</strong> @UUID[Compendium.pf2e.spells-srd.Item.rwCh2qTYPA44KEoK]{Dream Council}</span></p></li><li><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>9th</strong> @UUID[Compendium.pf2e.spells-srd.Item.coKiMMBLESkaLNVa]{Proliferating Eyes}</span></p></li></ul><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>Vessel Spell:</strong> Phantasmal Spiders</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>Avatar</strong> <em>Yanagi-no-Yamagumo</em> Speed 70 feet, climb Speed 70 feet, immune to immobilized;</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>Melee </strong></span><span class=\"action-glyph\">1</span><span style=\"font-family:Arial,sans-serif\"> stone fangs (deadly 3d8, finesse, reach 15 feet, versatile P), <strong>Damage</strong> @Damage[(6d6+6)[piercing]]</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>Ranged </strong></span><span class=\"action-glyph\">1</span><span style=\"font-family:Arial,sans-serif\"> spirit web (range 120 feet), <strong>Damage</strong> @Damage[(3d6+3)[spirit]] plus @UUID[Compendium.pf2e.conditionitems.Item.eIcWbB5o3pP6OIMe]{immobilized} and stuck to the nearest surface until it Escapes against your spell DC</span><br /></p><hr /><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\">Phantasmal Spiders [1 action]</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><em>mental, illusion</em></span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\"><strong>Range</strong> 30 feet <strong>Defense</strong> Will <strong>Duration</strong> Sustained up to 1 minute</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt\"><span style=\"font-family:Arial,sans-serif\">Calling on the power of Ugly Cute, you manifest hundreds of illusory, tiny stone spiders that swarm the target and stick to them with webs. When you Cast this Spell and each time you Sustain it, choose one creature within range. They must make a Will save. As these are phantasmal spiders, they can affect incorporeal creatures just the same as corporeal creatures. On a failure, they become immobilized from the phantasmal webs for 1 round and sickened 1 (or sickened 2 on a critical failure). A creature immobilized from the spell may attempt to Escape on their turn, using your spell DC as the Escape DC. A target that critically succeeds at their saving throw becomes immune to <em>phantasmal spiders</em> for 1 minute.</span></p>",
+      "gm": ""
+    },
+    "publication": {
+      "title": "",
+      "authors": "",
+      "license": "OGL",
+      "remaster": false
+    },
+    "rules": [],
+    "slug": "ugly-cute-apparition",
+    "traits": {
+      "otherTags": [
+        "animist-apparition"
+      ],
+      "value": [
+        "animist"
+      ],
+      "rarity": "rare"
+    },
+    "level": {
+      "value": 1
+    },
+    "category": "classfeature",
+    "onlyLevel1": false,
+    "maxTakable": 1,
+    "actionType": {
+      "value": "passive"
+    },
+    "actions": {
+      "value": null
+    },
+    "prerequisites": {
+      "value": []
+    },
+    "subfeatures": {
+      "proficiencies": {},
+      "senses": {},
+      "suppressedFeatures": []
+    },
+    "location": null
+  },
+  "img": "icons/creatures/invertebrates/spider-large-white-green.webp",
+  "flags": {
+    "exportSource": {
+      "world": "season-of-ghosts",
+      "system": "pf2e",
+      "coreVersion": "12.331",
+      "systemVersion": "6.12.1"
+    }
+  },
+  "_stats": {
+    "coreVersion": "12.331",
+    "systemId": "pf2e",
+    "systemVersion": "6.12.1",
+    "createdTime": 1750349718504,
+    "modifiedTime": 1750351243360,
+    "lastModifiedBy": "4WofpZcbAS7iZZkk"
+  }
+}
