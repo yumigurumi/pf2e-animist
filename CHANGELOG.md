@@ -1,3 +1,6 @@
+## Version 0.2.2
+- Fix localization
+
 ## Version 0.2.1
 - Add path for apply changes
 - game.modules.get("pf2e-animist").macros.applyChanges
